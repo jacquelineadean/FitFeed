@@ -5,30 +5,50 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="stylesheets\style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
+  <div class="container-fluid main_body">
+    
+    <!--Nav Bar-->
+<nav class="navbar">
+  <a class="navbar-brand nav-item" href="#">
+    <img src="Images/FitFeed_Brand.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
+  </a>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/workouts">Workouts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/food">Food</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mental">Mental Workouts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
 </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+    
+
+    <!--Profile card-->
+    <div class="card profile" style="width: 18rem;">
+      <img src="https://avatars2.githubusercontent.com/u/66268511?s=460&u=69029866e0b3438f3faf36a44ba6e5eea5720329&v=4" class="card-img-top profile-pic" alt="Profile Picture">
+      <div class="card-body">
+        <h5 class="card-title">Steven Johnson</h5>
+        <p class="card-text">Brief "About Me" section, or goals for using the application</p>
       </div>
     </div>
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
+
+  
 
 </body>
 
