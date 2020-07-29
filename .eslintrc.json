@@ -23,8 +23,7 @@
       "indent": ["error", 2],
       "quotes": ["error", "double"],
       "semi": ["error", "always"],
-      "prettier/prettier": "error",
-      "only-arrow-functions": true
+      "prettier/prettier": "error"
     }
   }
   
