@@ -45,16 +45,26 @@ a:hover{
   width: 10vw;
 }
 
-.card-title{
+.card-title, .mt-0{
   color: #d9d9d9;
   text-shadow: 2px 2px 3px #353535;
+  border-bottom: 2px solid #353535;
 }
 
 .label{
   color: #d9d9d9;
 }
 
-.loginPic{
+.loginPic, .mr-3, .media{
   border-radius: 10px;
   padding: 5px;
+}
+
+.left-column{
+  margin-right:5px;
+}
+
+.media{
+  background-color: #284b63;
+  color: #d9d9d9;
 }
