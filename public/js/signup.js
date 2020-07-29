@@ -2,25 +2,25 @@ $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
-  var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
+  var userNameInput = $("input#username-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
-      username: usernameInput.val().trim(),
+      username: userNameInput.val().trim(),
       password: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password) {
+    if (!userData.email || !userData.username || !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.username, userData.password);
     emailInput.val("");
-    usernameInput.val("");
+    userNameInput.val("");
     passwordInput.val("");
   });
 
