@@ -6,6 +6,13 @@ form.login {
 body {
   background-color: #3c6e71;
   margin:0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+}
+
+.main_body{
+  min-height: 100%;
 }
 
 .nav-item{
@@ -67,4 +74,22 @@ a:hover{
 .media{
   background-color: #284b63;
   color: #d9d9d9;
+}
+
+.footer{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #d9d9d9;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.footer-card{
+  background-color: #284b63;
+}
+
+#author{
+  color:black;
 }
