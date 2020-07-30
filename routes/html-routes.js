@@ -26,4 +26,22 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
+
+  app.get("/workouts", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/workouts.html"));
+    }
+  });
+
+  app.get("/food", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/food.html"));
+    }
+  });
+
+  app.get("/mental", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/mental.html"));
+    }
+  });
 };
