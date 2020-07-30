@@ -28,10 +28,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Create association between User and the Post table
+  // Create association between User and the tables
   User.associate = function(models) {
+    // Each User has one profile
+    User.hasOne(models.Profile, {
+      // When User is deleted, also delete the associated Profile
+      onDelete: "cascade"
+    });
+    // Each User has many posts
     User.hasMany(models.Post, {
-      // When User is deleted, also delet any associated Posts
+      // When User is deleted, also delete any associated Posts
       onDelete: "cascade"
     });
   };
