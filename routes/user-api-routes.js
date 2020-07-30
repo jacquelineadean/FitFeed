@@ -48,4 +48,17 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.get("/api/profile_data", function(req, res) {
+    if (!req.user) {
+      res.json({});
+    } else {
+      res.json({
+        firstName: req.profile.firstName,
+        lastName: req.profile.lastName,
+        bio: req.profile.bio,
+        photo: req.profile.photo
+      });
+    }
+  });
 };
