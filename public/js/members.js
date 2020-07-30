@@ -16,3 +16,14 @@ $(document).ready(function() {
     $("#profile-photo").src(data.photo);
   });
 });
+
+fetch("https://type.fit/api/quotes")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    var num = Math.floor(Math.random() * data.length);
+    console.log(num);
+    $("#quote").text(data[num].text);
+    $("#author").text(data[num].author);
+  });
