@@ -44,4 +44,10 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, "../public/mental.html"));
     }
   });
+
+  app.get("/profile", function(req, res) {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/profile.html"));
+    }
+  });
 };
