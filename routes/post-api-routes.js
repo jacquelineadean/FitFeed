@@ -31,8 +31,8 @@ module.exports = function(app) {
     // Create a new post object
     db.Post.create({
       activity: req.body.activity,
-      title: req.body.activity,
-      body: req.body.body
+      body: req.body.body,
+      UserId: req.user.id
     })
       .then(function(dbPost) {
         res.json(dbPost);

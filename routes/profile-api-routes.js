@@ -13,16 +13,18 @@ var db = require("../models");
 module.exports = function(app) {
   // // GET route for getting the profile of the logged in user
   app.get("/api/profile_data", function(req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      db.Profile.findOne({
+        where: {
+          UserId: req.user.id
+        }
+      }).then(function(dbProfile) {
+        res.json(dbProfile);
+      });
     }
-    db.Profile.findOne({
-      where: query,
-      include: [db.User]
-    }).then(function(dbProfile) {
-      res.json(dbProfile);
-    });
   });
 
   // PUT route for updating profile
