@@ -1,10 +1,10 @@
 // Search for Youtube Video
-
+$(document).ready(function() {
 const youTubeApiPartOne = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=";
 const youTubeApiPartTwo = "&type=video&safeSearch=strict&maxResults=";
 const youtubeApiPartThree = "&key=";
 const maxResults = 3;
-const APIkey = "AIzaSyBxqN1aMPbx92CJW_4XL5B0Z0RY9I0LbQI";
+const APIkey = "AIzaSyC0bwn0iBp6i5gvuBXhhDzHdGS9AogMjG4";
 
 const youtubeFrame = '<div class="col video-cell position-relative"><iframe class="position-absolute" width="420" height="345" src="https://www.youtube.com/embed/{VIDEOID}"></iframe><div class="click-video position-absolute" id="{VIDEOID}" ></div></div></div>';
 let videoUrl = '';
@@ -28,7 +28,7 @@ String.prototype.replaceAll = function(search, replace){
     return this.replace(new RegExp(search, 'g'), replace)
 }
 
-$(document).ready(function() {
+
     $(document).on("click",'.click-video', function(e) {
         const videoId = e && e.target && e.target.id;
         videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
@@ -37,12 +37,32 @@ $(document).ready(function() {
             return;
         }
 
+        // Youtube posting
+  //var bodyInput = $("#body");
+  var post = $("form.modal");
+
+  post.on("submit", function() {
+    var postData = {
+      activity: videoUrl,
+      body: "this can work"
+    };
+    postThePost(postData);
+  });
+
+  function postThePost(post) {
+    $.post("/api/posts", post, function(response) {
+        console.log(response);
+      //window.location.replace("/members");
+    }).catch(err)
+  }
+
         $('#workoutVideo').attr('src','');
         $('#videoModal').modal('show');
     });
 
     $('#videoModal').on('show.bs.modal', function () {
         $('#workoutVideo').attr('src',videoUrl);
+        return videoUrl;
     });
 
     let hiitRequest = getYoutubeVideos('hiit');
@@ -53,6 +73,7 @@ $(document).ready(function() {
         const hiitVideos = hiitResponse[0].items;
         const cardioVideos = cardioResponse[0].items;
         const yogaVideos = yogaResponse[0].items;
+
 
         const hiitContent = hiitVideos.map(x => {
             return youtubeFrame.replaceAll('{VIDEOID}', x.id.videoId);
@@ -76,4 +97,24 @@ $(document).ready(function() {
         $('#yoga-content').append(yogaContent);
 
     });
+
+    $.get("/api/user_data").then(function (data) {
+        $("#user-username").text(data.username);
+      });
+    
+      $.get("/api/profile_data").then(function(data) {
+        $("#profile-firstName").text(data.firstName);
+        $("#profile-lastName").text(data.lastName);
+        $("#profile-bio").text(data.bio);
+        $("#profile-photo").src(data.photo);
+      });
+      fetch("https://type.fit/api/quotes")
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          var num = Math.floor(Math.random() * data.length);
+          $("#quote").text(data[num].text);
+          $("#author").text(data[num].author);
+        });
 });
