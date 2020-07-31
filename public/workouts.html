@@ -63,10 +63,9 @@
   </div>      
   </div>
   </div>
-<!-- Modal -->
 
   <!-- Modal HTML -->
-  <div id="videoModal" class="modal fade">
+  <form id="videoModal" class="modal fade">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">
@@ -76,13 +75,15 @@
       <div class="modal-body position-relative">
         <iframe id="workoutVideo" class="video" src="" frameborder="0" allowfullscreen></iframe>
       </div>
+      <label for="body">Comment:</label>
+        <textarea class="form-control" rows="10" id="comment"></textarea>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Post</button>
+        <button type="submit" class="btn btn-success">Post</button>
       </div>
       </div>
     </div>
-  </div>
+  </form>
 
   <footer class="footer">
     <div class="card footer-card">
@@ -102,7 +103,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/members.js"></script>
   <script type="text/javascript" src="js/youtubeAPI.js"></script>
 </body>
 
