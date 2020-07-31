@@ -12,47 +12,40 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
   // // GET route for getting the profile of the logged in user
-  // app.get("/api/profile_data", function(req, res) {
-  //   // Retrieve the profile associated to the user
-  //   db.Profile.findOne({}).then(function(dbProfile) {
-  //     res.json(dbProfile);
-  //   });
-  // });
   app.get("/api/profile_data", function(req, res) {
-    if (!req.user) {
-      res.json({});
-    } else {
-      db.Profile.findOne({}).then(function(dbProfile) {
-        res.json({
-          firstName: req.profile.firstName,
-          lastName: req.profile.lastName,
-          bio: req.profile.bio,
-          photo: req.profile.photo
-        });
-      });
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
     }
+    db.Profile.findOne({
+      where: query,
+      include: [db.User]
+    }).then(function(dbProfile) {
+      res.json(dbProfile);
+    });
   });
 
   // PUT route for updating profile
   app.put("/api/profile_data", function(req, res) {
-    db.Profile.update(
-      {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        bio: req.body.bio
-        // picture: req.body.picture
-      },
-      {
-        where: {
-          UserId: req.user.userId
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      db.Profile.update(
+        {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          bio: req.body.bio,
+          photo: req.body.photo
+        },
+        {
+          where: {
+            UserId: req.user.id
+          }
         }
-      }
-    )
-      .then(function(dbProfile) {
+      ).then(function(dbProfile) {
         res.json(dbProfile);
-      })
-      .catch(function(err) {
-        res.json(err);
       });
+    }
   });
 };

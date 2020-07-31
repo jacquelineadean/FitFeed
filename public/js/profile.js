@@ -1,40 +1,49 @@
+/* eslint-disable prettier/prettier */
 $(document).ready(function() {
   // Getting jQuery references to the profile first name, last name, bio, and form
+  var profileForm = $("form.profile");
   var firstName = $("input#firstName");
   var lastName = $("input#lastName");
-  var bio = $("input#body");
-  var form = $("form.id");
+  var bio = $("textarea#body");
+  var photo = $("input#photo");
+  
+  // Declare id of User and id of Profile
+  var userId;
+  var UserId;
+
   // Add event listener for when the form is submitted
-  form.on("submit", function(event) {
+  profileForm.on("submit", function(event) {
     event.preventDefault();
-    var profile = {
+    var newProfile = {
       firstName: firstName.val().trim(),
       lastName: lastName.val().trim(),
-      bio: bio.val().trim()
+      bio: bio.val().trim(),
+      photo: photo.val()
     };
-    updateProfile(profile.firstName, profile.lastName, profile.bio);
+    console.log(newProfile);
+    newProfile.id = UserId;
+    updateProfile(newProfile);
   });
   // Function to check which user is logged in
   function checkUser() {
-    var userId;
     $.get("/api/user_data").then(function(data) {
       userId = data.id;
       console.log(userId);
       return userId;
     });
   }
-
-  // A function for posting to the update profile route
-  function updateProfile(firstName, lastName, bio) {
+  // Function to update profile
+  function updateProfile(profile) {
     checkUser();
-    console.log(userId);
-    $.put("/api/profile_data", {
-      firstName: firstName,
-      lastName: lastName,
-      bio: bio,
-      UserId: userId
-    }).then(function() {
-      window.location.replace("/members");
-    });
+    UserId = userId;
+    $.ajax({
+      method: "PUT",
+      url: "/api/profile_data",
+      data: profile
+    })
+      .then(function() {
+        window.location.href = "/members";
+      });
   }
 });
+

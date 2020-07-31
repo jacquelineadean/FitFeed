@@ -13,7 +13,7 @@ $(document).ready(function() {
     $("#profile-firstName").text(data.firstName);
     $("#profile-lastName").text(data.lastName);
     $("#profile-bio").text(data.bio);
-    $("#profile-photo").src(data.photo);
+    $("#profile-photo").file(data.photo);
   });
 });
 
@@ -23,7 +23,6 @@ fetch("https://type.fit/api/quotes")
   })
   .then(function(data) {
     var num = Math.floor(Math.random() * data.length);
-    console.log(num);
     $("#quote").text(data[num].text);
     $("#author").text(data[num].author);
   });
