@@ -4,7 +4,7 @@ const youTubeApiPartOne = "https://www.googleapis.com/youtube/v3/search?part=sni
 const youTubeApiPartTwo = "&type=video&safeSearch=strict&maxResults=";
 const youtubeApiPartThree = "&key=";
 const maxResults = 3;
-const APIkey = "AIzaSyC0bwn0iBp6i5gvuBXhhDzHdGS9AogMjG4";
+const APIkey = "AIzaSyDermk6zMO6c6R1nXgYo-O5nBynlFV5TiI";
 
 const youtubeFrame = '<div class="col video-cell position-relative"><iframe class="position-absolute" width="420" height="345" src="https://www.youtube.com/embed/{VIDEOID}"></iframe><div class="click-video position-absolute" id="{VIDEOID}" ></div></div></div>';
 let videoUrl = '';
@@ -38,22 +38,24 @@ String.prototype.replaceAll = function(search, replace){
         }
 
         // Youtube posting
-  //var bodyInput = $("#body");
   var post = $("form.modal");
 
   post.on("submit", function() {
+    var bodyInput = $("#comment").val();
+    console.log(bodyInput);
     var postData = {
       activity: videoUrl,
-      body: "this can work"
+      body: bodyInput
     };
     postThePost(postData);
   });
 
   function postThePost(post) {
-    $.post("/api/posts", post, function(response) {
-        console.log(response);
+    $.post("/api/posts", post, function() {
       //window.location.replace("/members");
-    }).catch(err)
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 
         $('#workoutVideo').attr('src','');
