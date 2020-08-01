@@ -1,3 +1,7 @@
+// *********************************************************************************
+// user-api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// *********************************************************************************
+
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
@@ -19,7 +23,10 @@ module.exports = function(app) {
       username: req.body.username,
       password: req.body.password
     })
-      .then(function() {
+      .then(function(User) {
+        var userId = User.dataValues.id;
+        console.log(userId);
+        db.Profile.create({ UserId: userId });
         res.redirect(307, "/api/login");
       })
       .catch(function(err) {
@@ -45,19 +52,6 @@ module.exports = function(app) {
         email: req.user.email,
         username: req.user.username,
         id: req.user.id
-      });
-    }
-  });
-
-  app.get("/api/profile_data", function(req, res) {
-    if (!req.user) {
-      res.json({});
-    } else {
-      res.json({
-        firstName: req.profile.firstName,
-        lastName: req.profile.lastName,
-        bio: req.profile.bio,
-        photo: req.profile.photo
       });
     }
   });

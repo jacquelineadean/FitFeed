@@ -11,7 +11,7 @@ $(document).ready(function() {
     $("#profile-firstName").text(data.firstName);
     $("#profile-lastName").text(data.lastName);
     $("#profile-bio").text(data.bio);
-    $("#profile-photo").src(data.photo);
+    // $("#profile-photo").file(data.photo);
   });
 
   fetch("https://type.fit/api/quotes")
@@ -40,7 +40,7 @@ $(document).ready(function() {
   getPosts();
 
   function createNewRow(post) {
-    var newMediaCard = ($("<div>")).addClass("card");
+    var newMediaCard = $("<div>").addClass("card");
     newMediaCard.data(post);
   }
 });
