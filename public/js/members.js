@@ -28,19 +28,40 @@ $(document).ready(function() {
 
   function getPosts() {
     $.get("/api/posts", function(data) {
+      console.log(data);
       postsHolder.empty();
       var postsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         postsToAdd.push(createNewRow(data[i]));
       }
-      blogContainer.append(postsToAdd);
+      postsHolder.append(postsToAdd);
     });
   }
 
   getPosts();
 
   function createNewRow(post) {
-    var newMediaCard = ($("<div>")).addClass("card");
-    newMediaCard.data(post);
+    var newMediaCard = $("<div>");
+    newMediaCard.addClass("media");
+    var newVid = $("<iframe>");
+    newVid.css({
+      width: "250",
+      height: "140",
+      padding: "5px"
+    });
+    newVid.attr("src", post.activity);
+    var newMediaBody = $("<div>");
+    newMediaBody.addClass("media-body");
+    var userID = $("<h5>");
+    userID.addClass("mt-0 posted");
+    userID.text(post.UserId);
+    var newCommentBody = $("<p>");
+    newCommentBody.addClass("commentBody");
+    newCommentBody.text(post.body);
+    newMediaBody.append(userID);
+    newMediaBody.append(newCommentBody);
+    newMediaCard.append(newVid);
+    newMediaCard.append(newMediaBody);
+    return newMediaCard;
   }
 });
