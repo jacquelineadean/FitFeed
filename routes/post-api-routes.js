@@ -13,8 +13,15 @@ var db = require("../models");
 module.exports = function(app) {
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
     // Retrieve all of the posts
-    db.Post.findAll({}).then(function(dbPost) {
+    db.Post.findAll({
+      where: query,
+      include: [db.User]
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
