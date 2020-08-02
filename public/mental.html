@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheets\style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets\workouts.css">
 </head>
 
 <body>
@@ -20,13 +21,13 @@
   </a>
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="/workouts">Workouts</a>
+      <a class="nav-link disabled" href="/workouts">Workouts</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/food">Food</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="/mental">Mental Workouts</a>
+      <a class="nav-link" href="/mental">Mental Workouts</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/logout">Logout</a>
@@ -34,7 +35,6 @@
   </ul>
 </nav>
     
-
     <!--Profile card-->
     <div class="row">
       <div class="col-sm-2 left-column">
@@ -51,45 +51,39 @@
   <!--Display tag for API information-->
   <div class="col-sm-9 media-display">
 <!--Row_1-->
-      <div class="media row">
-        <div class="col-sm-10">
+      <div class="media row" id="meditation-content">
+        
+      </div>
+      <div class="media row" id="sleep-content">
 
-        </div>
-        <div class="col-sm-2">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Post</button>
+      </div>
+      <div class="media row" id="motivation-content">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+      </div>
+  </div>      
+  </div>
+  </div>
+
+  <!-- Modal HTML -->
+  <form id="videoModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">What are you thinking?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">YouTube Video</h4>
       </div>
-      <div class="modal-body">
-       
-        <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title">
-        <br />
-        <label for="body">Body:</label>
-        <textarea class="form-control" rows="10" id="body"></textarea>
-
+      <div class="modal-body position-relative">
+        <iframe id="mentalVideo" class="video" src="" frameborder="0" allowfullscreen></iframe>
       </div>
+      <label for="body">Comment:</label>
+        <textarea class="form-control" rows="10" id="comment"></textarea>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Post</button>
+        <button type="submit" class="btn btn-success">Post</button>
+      </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-
-      </div>
-  </div>
-  </div>
+  </form>
 
   <footer class="footer">
     <div class="card footer-card">
@@ -105,13 +99,11 @@
     </div>
   </footer>
 
-</div>
-
   <!--Scripts-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="js/mental.js"></script>
 </body>
 
 </html>
