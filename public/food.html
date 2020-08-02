@@ -51,11 +51,26 @@
   <!--Display tag for API information-->
   <div class="col-sm-9 media-display">
 <!--Row_1-->
-      <div class="media row">
-        <div class="col-sm-10">
+<div class="media row">
+  <div class="col" id="recipe-images">
 
-        </div>
-        <div class="col-sm-2">
+  </div>    
+</div>
+<div id="recipeWindow" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="height: 800px">
+        <iframe id="iframeModalWindow" height="100%" width="100%" src="" name="iframe_modal"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- </div>
+        <div class="col-sm-2"> -->
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Post</button>
 
@@ -112,6 +127,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="js/food.js"></script>
+
 </body>
+
 
 </html>
