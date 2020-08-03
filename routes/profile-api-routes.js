@@ -37,8 +37,8 @@ module.exports = function(app) {
         {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          bio: req.body.bio,
-          photo: req.body.photo
+          bio: req.body.bio
+          // photo: req.body.photo
         },
         {
           where: {

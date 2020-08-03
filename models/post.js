@@ -4,14 +4,14 @@ module.exports = function(sequelize, DataTypes) {
     // Activity cannot be null and must be a valid URL
     activity: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: {
-          msg: "Activity must be a URL with http or https protocol.",
-          protocols: ["http", "https"],
-          requireProtocol: true
-        }
-      }
+      allowNull: false
+      // validate: {
+      //   isURL: {
+      //     msg: "Activity must be a URL with http or https protocol.",
+      //     protocols: ["http", "https"],
+      //     requireProtocol: true
+      //   }
+      // }
     },
     // Title cannot be null
     title: {

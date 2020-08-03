@@ -12,7 +12,7 @@ $(document).ready(function () {
     $("#profile-firstName").text(data.firstName);
     $("#profile-lastName").text(data.lastName);
     $("#profile-bio").text(data.bio);
-    $("#profile-photo").src = (data.photo);
+    // $("#profile-photo").src = (data.photo);
   });
 
   // This populates the motivational quotes
