@@ -2,7 +2,7 @@ var cellCount = 3; //this should evenly go into the recipe count for now
 var recipes = [];
 var recipeURL = "";
 
-$(document).ready(function() { 
+$(document).ready(function() {
   $.get(
     "https://api.spoonacular.com/recipes/random?apiKey=6983116be6a04b6d8b5f03725e5b859e&number=6&targetCalories=1000",
     function(data, status) {
@@ -30,7 +30,9 @@ $(document).ready(function() {
 
   $("#recipeWindow").on("shown.bs.modal", function() {
     //correct here use 'shown.bs.modal' event which comes in bootstrap3
-      $(this).find("iframe").attr("src", recipeURL);
+    $(this)
+    .find("iframe")
+    .attr("src", recipeURL);
   });
 });
 
@@ -50,7 +52,7 @@ function displayRecipeImages() {
   }
   $("#recipe-images").html(""); //empty the div
   var collection = chunkArray(recipes, cellCount);
-  collection.forEach(function (smallArray) {
+  collection.forEach(function(smallArray) {
     //add a row
     var div = $("<div>", {
       class: "row my-4"
