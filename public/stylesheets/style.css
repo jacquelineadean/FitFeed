@@ -15,12 +15,30 @@ body {
   min-height: 100%;
 }
 
+.signupForm{
+  color: white;
+}
+
+#loginPage{
+  color: #ef233c;
+}
+
 .nav-item{
   margin-top: 0.5vw;
   margin-right:0.5vw;
   background-color: #000;
   border-radius: 10px;
   font-size: 20px;
+}
+
+#signUpBtn{
+background-color: white;
+color: #000;
+}
+
+#signUpBtn:hover{
+  background-color: #000;
+color: white;
 }
 
 .nav-item:hover{
