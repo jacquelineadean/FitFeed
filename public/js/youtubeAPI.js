@@ -50,7 +50,6 @@ $(document).ready(function() {
     post.on("submit", function() {
       var bodyInput = $("#comment").val();
       var title = $("#title").val();
-      console.log(bodyInput);
       var postData = {
         activity: videoUrl,
         title: title,
