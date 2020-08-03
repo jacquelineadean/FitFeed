@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   $.get(
     "https://api.spoonacular.com/recipes/random?apiKey=6983116be6a04b6d8b5f03725e5b859e&number=6&targetCalories=1000",
-    function(data, status) {
+    function(data) {
       if (!data || data.length === 0) {
         alert("Sorry, unable to find any recipes, or problem with API");
         return; //exit since we have no recipes
