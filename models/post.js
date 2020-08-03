@@ -15,8 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     // Title cannot be null
     title: {
-      type: DataTypes.STRING
-      //,allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     },
     // Body is optional
     body: {
