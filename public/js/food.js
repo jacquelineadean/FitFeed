@@ -19,6 +19,7 @@ $(document).ready(function() {
   );
 
   $(document).on("click", ".show-recipe", function(e) {
+    console.log("Click");
     //e is the element itself
     if (!e || !e.currentTarget) {
       return;
@@ -85,7 +86,7 @@ function showRecipe(recipeId) {
 
   //find the recipe in the list of recipes
   var selectedRecipe = recipes.find(function(x) {
-    if (x.id === recipeId) {
+    if (parseInt(x.id) === parseInt(recipeId)) {
       return x;
     }
   });
