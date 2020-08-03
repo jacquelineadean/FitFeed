@@ -31,8 +31,8 @@ $(document).ready(function() {
   $("#recipeWindow").on("shown.bs.modal", function() {
     //correct here use 'shown.bs.modal' event which comes in bootstrap3
     $(this)
-    .find("iframe")
-    .attr("src", recipeURL);
+      .find("iframe")
+      .attr("src", recipeURL);
   });
 });
 
