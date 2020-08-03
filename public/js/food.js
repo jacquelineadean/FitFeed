@@ -62,7 +62,7 @@ function displayRecipeImages() {
       console.log(x);
       //loop through the array of recipes and build an array of images
       //we only need the id for now to link to the recipe, also the image URL is based on the recipe ID
-      return `<div class='col show-recipe pointer text-center' id='${x.id}'><img class='recipe-img-small' src='https://spoonacular.com/recipeImages/${x.id}-312x231.jpg'><div class='show-recipe pointer' id='${x.id}'>Click to see recipe</div></div>`;
+      return "<div class='col show-recipe pointer text-center' id='"+x.id+"'><img class='recipe-img-small' src='https://spoonacular.com/recipeImages/"+x.id+"-312x231.jpg'><div class='show-recipe pointer' id='"+x.id+"'>Click to see recipe</div></div>";
     });
     div.html(recipeImages);
     //append our recipes to the div we want
