@@ -1,4 +1,4 @@
-var cellCount = 3; //this should evenly go into the recipe count for now
+var cellCount = 3; //this should evenly go into the recipe count for now.
 var recipes = [];
 var recipeURL = "";
 
