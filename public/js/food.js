@@ -85,6 +85,7 @@ function showRecipe(recipeId) {
   }
 
   //find the recipe in the list of recipes
+  //added parse int for travis ci formatting 
   var selectedRecipe = recipes.find(function(x) {
     if (parseInt(x.id) === parseInt(recipeId)) {
       return x;
