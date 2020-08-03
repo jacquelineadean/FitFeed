@@ -5,6 +5,8 @@ In a social media driven era, creating healthy habits has never been more access
 
 Try out the app today at: https://fitfeed123.herokuapp.com/ 
 
+![Gif](Assets/demo.gif)
+
 ### User Story
 ```
 AS A social media user who values health
