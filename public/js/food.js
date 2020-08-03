@@ -39,7 +39,7 @@ $(document).ready(function() {
 function chunkArray(array, size) {
   var result = [];
   // var arrayCopy = [...array]
-  var arrayCopy = [array];
+  var arrayCopy = [...array];
   while (arrayCopy.length > 0) {
     result.push(arrayCopy.splice(0, size));
   }
@@ -61,7 +61,7 @@ function displayRecipeImages() {
       console.log(x);
       //loop through the array of recipes and build an array of images
       //we only need the id for now to link to the recipe, also the image URL is based on the recipe ID
-      return "<div class='col show-recipe pointer text-center' id='${x.id}'><img class='recipe-img-small' src='https://spoonacular.com/recipeImages/${x.id}-312x231.jpg'><div class='show-recipe pointer' id='${x.id}'>Click to see recipe</div></div>";
+      return `<div class='col show-recipe pointer text-center' id='${x.id}'><img class='recipe-img-small' src='https://spoonacular.com/recipeImages/${x.id}-312x231.jpg'><div class='show-recipe pointer' id='${x.id}'>Click to see recipe</div></div>`;
     });
     div.html(recipeImages);
     //append our recipes to the div we want
@@ -76,10 +76,16 @@ function showRecipe(recipeId) {
 
   //find the recipe in the list of recipes
   var selectedRecipe = recipes.find(function(x) {
-    if (x.id === recipeId) {
-      //get the recipe URL
-      recipeURL = selectedRecipe.spoonacularSourceUrl;
-      $("#recipeWindow").modal({ show: true });
-    }
-  });
+		if (x.id == recipeId) {
+			return x
+    }});
+	//get the recipe URL
+	recipeURL = selectedRecipe.spoonacularSourceUrl;
+    $("#recipeWindow").modal({ show: true }); 
 }
+
+// const selectedRecipe = recipes.find(x => x.id == recipeId);
+//     //get the recipe URL
+//     recipeURL = selectedRecipe.spoonacularSourceUrl;
+//     $('#recipeWindow').modal({show:true})
+// }
