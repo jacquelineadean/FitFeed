@@ -39,7 +39,8 @@ $(document).ready(function() {
 function chunkArray(array, size) {
   var result = [];
   // var arrayCopy = [...array]
-  var arrayCopy = [...array];
+  // var arrayCopy = [...array];
+  var arrayCopy = [].concat(array);
   while (arrayCopy.length > 0) {
     result.push(arrayCopy.splice(0, size));
   }
