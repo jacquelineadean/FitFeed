@@ -103,7 +103,7 @@ function showRecipe(recipeId) {
 
   //find the recipe in the list of recipes
   var selectedRecipe = recipes.find(function(x) {
-    if (x.id === recipeId) {
+    if (parseInt(x.id) === parseInt(recipeId)) {
       return x;
     }
   });
