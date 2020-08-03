@@ -4,7 +4,7 @@ form.login {
 }
 
 body {
-  background-color: #3c6e71;
+  background-color: #000;
   margin:0 auto;
   width: 100%;
   height: 100%;
@@ -18,29 +18,29 @@ body {
 .nav-item{
   margin-top: 0.5vw;
   margin-right:0.5vw;
-  background-color: #284b63;
+  background-color: #000;
   border-radius: 10px;
-  font-size: 1.5vw;
+  font-size: 20px;
 }
 
 .nav-item:hover{
-  background-color: #284b63;
+  background-color: white;
   opacity: 0.8;
 }
 
 a{
-  color: #d9d9d9;
+  color: white;
 }
 
 a:hover{
-  color: #353535;
+  color: #000;
 }
 
 .profile{
   margin-top: 2vw;
-  background-color: #284b63;
+  background-color: white;
   border-radius: 10px;
-  color: #d9d9d9;
+  color: #000;
 }
 
 .profile-pic{
@@ -53,13 +53,12 @@ a:hover{
 }
 
 .card-title, .mt-0{
-  color: #d9d9d9;
-  text-shadow: 2px 2px 3px #353535;
+  color: #000;
   border-bottom: 2px solid #353535;
 }
 
 .label{
-  color: #d9d9d9;
+  color: #000;
 }
 
 .loginPic, .mr-3, .media{
@@ -71,9 +70,23 @@ a:hover{
   margin-right:5px;
 }
 
+#edit-profile{
+  text-align: center;
+  color: white;
+  background-color: #ef233c;
+  border-radius: 10px;
+  margin: 1px;
+}
+
+#edit-profile:hover{
+  background-color: white;
+  opacity: 0.8;
+  color: #000;
+}
+
 .media{
-  background-color: #284b63;
-  color: #d9d9d9;
+  background-color: white;
+  color: #000;
   padding: 12px;
   margin-bottom: 8px;
 }
@@ -83,17 +96,17 @@ a:hover{
   bottom: 0;
   width: 100%;
   text-align: center;
-  color: #d9d9d9;
+  color: #000;
   margin-top: 35px;
   margin-bottom: 35px;
 }
 
-.footer-card{
-  background-color: #284b63;
+.card-header{
+  background-color: #DCDCDC;
 }
 
 #author{
-  color:black;
+  color:#000;
 }
 
 iframe{
