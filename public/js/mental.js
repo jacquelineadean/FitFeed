@@ -5,7 +5,7 @@ $(document).ready(function() {
   var youTubeApiPartTwo = "&type=video&safeSearch=strict&maxResults=";
   var youtubeApiPartThree = "&key=";
   var maxResults = 3;
-  var APIkey = "AIzaSyA1CsSmWes8g2YuNsHprVY16NPYsf0kRgk";
+  var APIkey = "AIzaSyBNqT87EQ8zaG-wxmtP9TVqLFvaVKPZpJg";
 
   var youtubeFrame =
     "<div class='col video-cell position-relative'><iframe class='position-absolute' src='https://www.youtube.com/embed/{VIDEOID}'></iframe><div class='click-video position-absolute' id='{VIDEOID}' ></div></div>";

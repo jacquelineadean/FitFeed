@@ -23,7 +23,7 @@ $(document).ready(function() {
     });
 
   $.get(
-    "https://api.spoonacular.com/recipes/random?apiKey=6983116be6a04b6d8b5f03725e5b859e&number=6&targetCalories=1000",
+    "https://api.spoonacular.com/recipes/random?apiKey=25d0c76b25b545718608444b6be4dccc&number=6&targetCalories=1000",
     function(data) {
       if (!data || data.length === 0) {
         alert("Sorry, unable to find any recipes, or problem with API");
