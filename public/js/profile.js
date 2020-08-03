@@ -12,7 +12,7 @@ $(document).ready(function () {
     $("#profile-firstName").text(data.firstName);
     $("#profile-lastName").text(data.lastName);
     $("#profile-bio").text(data.bio);
-    $("#profile-photo").file(data.photo);
+    $("#profile-photo").src = (data.photo);
   });
 
   // This populates the motivational quotes
@@ -31,11 +31,22 @@ $(document).ready(function () {
   var firstName = $("input#firstName");
   var lastName = $("input#lastName");
   var bio = $("textarea#body");
-  var photo = $("input#photo");
+  // var photo = $("input#photo");
 
   // Declare id of User and id of Profile
   var userId;
   var UserId;
+
+  // Add event listener to profile photo upload
+  // photo.on("change", function () {
+  //   var reader = new FileReader();
+  //   reader.onload = function () {
+  //     var img = new Image();
+  //     img.src = reader.result;
+  //     photoURL = img.src;
+  //   };
+  //   // reader.readAsDataURL(photo);
+  // });
 
   // Add event listener for when the form is submitted
   profileForm.on("submit", function (event) {
@@ -44,7 +55,8 @@ $(document).ready(function () {
       firstName: firstName.val().trim(),
       lastName: lastName.val().trim(),
       bio: bio.val().trim(),
-      photo: photo.val()
+      // photo: photoURL
+      // photo: photo.val()
     };
     console.log(newProfile);
     newProfile.id = UserId;
