@@ -25,13 +25,13 @@
       </a>
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link disabled" href="/workouts">Workouts</a>
+          <a class="nav-link" href="/workouts">Workouts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/food">Food</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/mental">Mental Workouts</a>
+          <a class="nav-link disabled" href="/mental">Mental Workouts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
@@ -60,15 +60,24 @@
       <!--Display tag for API information-->
       <div class="col-sm-9 media-display">
         <!--Row_1-->
+        <div>
+          <h2 class="title">Meditation</h2>
         <div class="media row" id="meditation-content">
 
         </div>
+      </div>
+        <div>
+          <h2 class="title">Sleep</h2>
         <div class="media row" id="sleep-content">
           ​
         </div>
+      </div>
+        <div>
+          <h2 class="title">Motivation</h2>
         <div class="media row" id="motivation-content">
           ​
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -84,6 +93,8 @@
         <div class="modal-body position-relative">
           <iframe id="mentalVideo" class="video" src="" frameborder="0" allowfullscreen></iframe>
         </div>
+        <label for="body">Title:</label>
+        <input class="form-control" id="title"></input>
         <label for="body">Comment:</label>
         <textarea class="form-control" rows="10" id="comment"></textarea>
         <div class="modal-footer">

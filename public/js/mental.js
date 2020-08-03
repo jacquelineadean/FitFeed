@@ -8,7 +8,7 @@ $(document).ready(function() {
   var APIkey = "AIzaSyDermk6zMO6c6R1nXgYo-O5nBynlFV5TiI";
 
   var youtubeFrame =
-    "<div class='col video-cell position-relative'><iframe class='position-absolute' width='420' height='345' src='https://www.youtube.com/embed/{VIDEOID}'></iframe><div class='click-video position-absolute' id='{VIDEOID}' ></div></div></div>";
+    "<div class='col video-cell position-relative'><iframe class='position-absolute' src='https://www.youtube.com/embed/{VIDEOID}'></iframe><div class='click-video position-absolute' id='{VIDEOID}' ></div></div>";
   var videoUrl = "";
 
   function getYoutubeVideos(searchQuery) {
@@ -49,9 +49,10 @@ $(document).ready(function() {
 
     post.on("submit", function() {
       var bodyInput = $("#comment").val();
-      console.log(bodyInput);
+      var title = $("#title").val();
       var postData = {
         activity: videoUrl,
+        title: title,
         body: bodyInput
       };
       postThePost(postData);
