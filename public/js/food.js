@@ -2,10 +2,10 @@ var cellCount = 3; //this should evenly go into the recipe count for now
 var recipes = [];
 var recipeURL = "";
 
-$(document).ready(function () {
+$(document).ready(function(){
   $.get(
     "https://api.spoonacular.com/recipes/random?apiKey=6983116be6a04b6d8b5f03725e5b859e&number=6&targetCalories=1000",
-    function (data, status) {
+    function(data, status){
       console.log("Data: " + data + "\nStatus: " + status);
       if (!data || data.length === 0) {
         alert("Sorry, unable to find any recipes, or problem with API");
@@ -18,7 +18,7 @@ $(document).ready(function () {
     }
   );
 
-  $(document).on("click", ".show-recipe", function (e) {
+  $(document).on("click",".show-recipe",function(e){
     //e is the element itself
     if (!e || !e.currentTarget) {
       return;
@@ -28,9 +28,9 @@ $(document).ready(function () {
     showRecipe(recipeId);
   });
 
-  $("#recipeWindow").on("shown.bs.modal", function () {
+  $("#recipeWindow").on("shown.bs.modal",function(){
     //correct here use 'shown.bs.modal' event which comes in bootstrap3
-    $(this).find("iframe").attr("src", recipeURL);
+  $(this).find("iframe").attr("src",recipeURL);
   });
 });
 
@@ -53,10 +53,10 @@ function displayRecipeImages() {
   collection.forEach(function (smallArray) {
     //add a row
     var div = $("<div>", {
-      class: "row my-4",
+      class: "row my-4"
     });
     //build our recipe images display
-    var recipeImages = smallArray.map(function (x) {
+    var recipeImages=smallArray.map(function(x){
       console.log(x);
       //loop through the array of recipes and build an array of images
       //we only need the id for now to link to the recipe, also the image URL is based on the recipe ID
@@ -82,14 +82,14 @@ function showRecipe(recipeId) {
   }
 
   //find the recipe in the list of recipes
-  var selectedRecipe = recipes.find(function (x) {
-    if (x.id == recipeId) {
+  var selectedRecipe = recipes.find(function(x){
+    if (x.id === recipeId) {
       return x;
     }
   });
   //get the recipe URL
   recipeURL = selectedRecipe.spoonacularSourceUrl;
   $("#recipeWindow").modal({
-    show: true,
+    show: true
   });
 }
