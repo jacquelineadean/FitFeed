@@ -3,10 +3,28 @@ var recipes = [];
 var recipeURL = "";
 
 $(document).ready(function() {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/profile_data").then(function(data) {
+    $("#profile-firstName").text(data.firstName);
+    $("#profile-lastName").text(data.lastName);
+    $("#profile-bio").text(data.bio);
+    // $("#profile-photo").file(data.photo);
+  });
+
+  fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var num = Math.floor(Math.random() * data.length);
+      $("#quote").text(data[num].text);
+      $("#author").text(data[num].author);
+    });
+
   $.get(
     "https://api.spoonacular.com/recipes/random?apiKey=6983116be6a04b6d8b5f03725e5b859e&number=6&targetCalories=1000",
-    function(data, status) {
-      console.log("Data: " + data + "\nStatus: " + status);
+    function(data) {
       if (!data || data.length === 0) {
         alert("Sorry, unable to find any recipes, or problem with API");
         return; //exit since we have no recipes
